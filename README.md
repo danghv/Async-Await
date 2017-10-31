@@ -1,11 +1,11 @@
 # Node.js Async Function Best Practices (Những kinh nghiệm hay với hàm _async_ trong NodeJS)
-Kể từ phiên bản **NodeJS** 7.6, **NodeJS** "chuyên chở" với một phiên bản _engine V8_ mới (V8 version 5.5) được hỗ trợ xử lý các hàm bất đồng bộ với từ khóa _async_. Thêm vào đó, Ngày 31/10/2017 vừa qua NodeJS 8 chính thức trờ thành **LTS version** (Long Term Support - phiên bản được hỗ trợ dài hạn) của LTS team NodeJS. Vì vậy, không có lý do gì không bắt đầu sử dụng các hàm _async_ trong cấu trúc code của bạn. Trong bài viết này, giới thiệu ngắn gọn cho bạn hàm _async_ là gì, và cái cách mà nó sẽ làm thay đổi cách chúng ta viết các ứng dụng **NodeJS**.
+Kể từ phiên bản **NodeJS** 7.6, **NodeJS** cập nhật với một phiên bản _engine V8_ mới (V8 version 5.5) được hỗ trợ xử lý các hàm bất đồng bộ với từ khóa _async_. Thêm vào đó, Ngày 31/10/2017 vừa qua NodeJS 8 chính thức trờ thành **LTS version** (Long Term Support - phiên bản được hỗ trợ dài hạn) của LTS team NodeJS. Vì vậy, không có lý do gì không bắt đầu sử dụng các hàm _async_ trong cấu trúc code của bạn. Trong bài viết này, giới thiệu ngắn gọn cho bạn hàm _async_ là gì, và cái cách mà nó sẽ làm thay đổi cách chúng ta viết các ứng dụng **NodeJS**.
 
 ## Hàm ASYNC là gì?
 
 Các hàm _async_ cho phép bạn viết các đoạn code dựa trên **Promise** trông như là nó được xử lý đồng bộ vậy (lần lượt từ trên xuống dưới). Một lần bạn định nghĩa một hàm sử dụng từ khóa _async_ (gọi là _async function_), sau đó bạn sử dụng từ khóa _await_ bên trong thân hàm đó. 
 
-Khi _async function_ được gọi, nó trả về một **Promise**. Khi _async function_ trả về một giá trị, **Promise** nhận trạng thái _fullfilled_, còn nếu _async function_ trả về _error_, **Promise** nhận trạng thái _rejected_.
+Khi _async function_ được gọi, nó trả về một **Promise**. Khi _async function_ trả về một giá trị, **Promise** nhận trạng thái _fullfilled_(hoàn tất), còn nếu _async function_ trả về _error_, **Promise** nhận trạng thái _rejected_(từ chối).
 
 Từ khóa _await_ có thể được sử dụng để đợi một **Promise** (cái mà được resolved và trả về trạng thái _fullfilled_). Nếu một giá trị (_value_) truyền tới từ khóa _await_ không phải là một **Promise**, nó chuyển đổi _value_ thành một resolve Promise.
 
@@ -26,7 +26,7 @@ main()
   .catch(console.error)
 
 ```
-## Di trú (Migrating) tới các hàm _async_
+## Migrating to async functions (Chuyển sang dùng hàm _async_)
 
 Nếu các ứng dụng **NodeJS** của bạn đã đang sử dụng **Promises**, bạn chỉ việc bắt đầu _awaiting_ các **Promise** của bạn thay vì nối chuỗi (chaining) chúng. 
 
@@ -183,8 +183,8 @@ main()
   .catch(console.error)
 ```
 
-## Next up
+## Next up (Tiếp theo)
 
 Tôi hi vọng bạn thích bài viết này và học được nhiều thứ! (:smile). 
 
-Dẫn nguồn: [https://nemethgergely.com/async-function-best-practices/](https://nemethgergely.com/async-function-best-practices/) 
+Dẫn nguồn: [https://nemethgergely.com/async-function-best-practices/](https://nemethgergely.com/async-function-best-practices/)
