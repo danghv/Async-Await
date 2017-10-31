@@ -187,3 +187,4 @@ main()
 
 Tôi hi vọng bạn thích bài viết này và học được nhiều thứ! (:smile). 
 
+Dẫn nguồn: [https://nemethgergely.com/async-function-best-practices/](https://nemethgergely.com/async-function-best-practices/)
